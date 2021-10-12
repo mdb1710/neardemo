@@ -1,5 +1,5 @@
 import 'regenerator-runtime/runtime'
-import React from 'react'
+import React, { useState } from 'react'
 import { login, logout } from './utils'
 import './global.css'
 
@@ -8,13 +8,13 @@ const { networkId } = getConfig(process.env.NODE_ENV || 'development')
 
 export default function App() {
   // use React Hooks to store greeting in component state
-  const [greeting, setGreeting] = React.useState()
+  const [greeting, setGreeting] = useState()
 
   // when the user has not yet interacted with the form, disable the button
-  const [buttonDisabled, setButtonDisabled] = React.useState(true)
+  const [buttonDisabled, setButtonDisabled] = useState(true)
 
   // after submitting the form, we want to show Notification
-  const [showNotification, setShowNotification] = React.useState(false)
+  const [showNotification, setShowNotification] = useState(false)
 
   // The useEffect hook can be used to fire side-effects during render
   // Learn more: https://reactjs.org/docs/hooks-intro.html
@@ -41,10 +41,9 @@ export default function App() {
   if (!window.walletConnection.isSignedIn()) {
     return (
       <main>
-        <h1>Welcome to NEAR!</h1>
+        <h1>Welcome to NEAR voting!</h1>
         <p>
-          To make use of the NEAR blockchain, you need to sign in. The button
-          below will sign you in using NEAR Wallet.
+          Please vote for your favorite 90's Nickelodeon Cartoon below!
         </p>
         <p>
           By default, when your app runs in "development" mode, it connects
